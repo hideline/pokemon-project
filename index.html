@@ -14,7 +14,85 @@
 </head>
 <body class="debug-screens bg-slate-700">
 
+   <!-- Lista pokemon -->
+   <div>
+    <div id="lista"
+      class="p-4 w-300px bg-gradient-to-r from-pink-500 to-pink-300 font-semibold poppins-regular tracking-wider flex justify-center m-auto  ">
+    </div>
 
+    <input class="p-4 rounde-md w-full text-center " type="text" id="scegliPokemon" placeholder=" Choice Your Pokemon♥">
+
+    <button id="aggiungi" onclick="pushPokemon()"
+      class="p-4 w-300px poppins-regular tracking-wider bg-indigo-400 rounded-md flex  m-auto mt-10 hover:bg-indigo-500 hover:scale-105 duration-150 transition-all ">
+      Add pokemon ♥
+    </button>
+  </div>
+
+  <div>
+    <!-- Buttons  -->
+    <div class="flex justify-center gap-10 items-center my-10">
+          <!-- Search -->
+      <div
+        class="flex justify-center mt-2  bg-white w-[250px]  rounded-3xl place-content-center items-center px-4 text-center gap-2">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+          </svg>
+        </div>
+
+        <div>
+          <!-- Input search -->
+          <input class="py-3 rounded-3xl w-full  focus:outline-none" type="text" id="scegliPokemon"
+            placeholder=" Search">
+        </div>
+      </div>
+
+      <div class="">
+        <!-- Select -->
+        <div class=" relative ">
+          <div onclick="spawnMenu()" id="spawnMenu" class="p-4 bg-slate-800/40 text-white/60 rounded-md w-[250px] flex justify-between">
+            <div class="  text-white/65">
+              Select
+            </div>
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </div>
+          </div>
+          <div id="menu" class=" hidden p-4 bg-slate-800 rounded-md absolute w-[250px]">
+            <div onclick="loadPokemonsByTypes('fire')" class="p-2 border-b-2 border-slate-700 text-white/60">
+              Fire
+            </div>
+
+            <div class="p-2 border-b-2 border-slate-700 text-white/60">
+              Water
+            </div>
+
+            <div class="p-2 border-b-2 border-slate-700 text-white/60">
+              Grass
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!--  -->
+
+
+    <!-- Card dei pokemon -->
+    <div id="contenitorePokemon" class="grid  grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-5 mx-10 my-5">
+
+      <!-- CARD -->
+
+
+    </div>
+
+  </div>
  
 
 
