@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en " class="dark" id="main-html">
+
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/love.png" />
@@ -10,12 +11,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet"> 
+    rel="stylesheet">
 </head>
-<body class="debug-screens bg-slate-700">
 
-   <!-- Lista pokemon -->
-   <div>
+<body class="debug-screens bg-slate-700 poppins-regular">
+
+  <!-- Lista pokemon -->
+  <!-- <div>
     <div id="lista"
       class="p-4 w-300px bg-gradient-to-r from-pink-500 to-pink-300 font-semibold poppins-regular tracking-wider flex justify-center m-auto  ">
     </div>
@@ -26,14 +28,14 @@
       class="p-4 w-300px poppins-regular tracking-wider bg-indigo-400 rounded-md flex  m-auto mt-10 hover:bg-indigo-500 hover:scale-105 duration-150 transition-all ">
       Add pokemon ♥
     </button>
-  </div>
+  </div> -->
 
-  <div>
+  <div class="mt-[100px]"> 
     <!-- Buttons  -->
     <div class="flex justify-center gap-10 items-center my-10">
-          <!-- Search -->
+      <!-- Search -->
       <div
-        class="flex justify-center mt-2  bg-white w-[250px]  rounded-3xl place-content-center items-center px-4 text-center gap-2">
+        class="flex justify-center  bg-white w-[250px]  rounded-md place-content-center items-center h-[55px] px-4 text-center gap-2 mb-12 ">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-6 h-6">
@@ -44,7 +46,7 @@
 
         <div>
           <!-- Input search -->
-          <input class="py-3 rounded-3xl w-full  focus:outline-none" type="text" id="scegliPokemon"
+          <input class="py-3 rounded-3xl w-full  focus:outline-none" type="text" id="searchPokemon"
             placeholder=" Search">
         </div>
       </div>
@@ -52,28 +54,124 @@
       <div class="">
         <!-- Select -->
         <div class=" relative ">
-          <div onclick="spawnMenu()" id="spawnMenu" class="p-4 bg-slate-800/40 text-white/60 rounded-md w-[250px] flex justify-between">
+          <div onclick="spawnMenu()" id="spawnMenu"
+            class="p-4  bg-slate-800/40 text-white/60 rounded-md w-[200px] flex justify-between mb-12 cursor-pointer ">
             <div class="  text-white/65">
               Select
             </div>
             <div>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="w-6 h-6">
+              <svg id="svgSelect" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6 ">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
               </svg>
             </div>
           </div>
-          <div id="menu" class=" hidden p-4 bg-slate-800 rounded-md absolute w-[250px]">
-            <div onclick="loadPokemonsByTypes('fire')" class="p-2 border-b-2 border-slate-700 text-white/60">
-              Fire
+          <!-- Reset button -->
+
+          <div id="menu" class=" hidden p-4 bg-slate-800/40 rounded-md absolute top-[-70px] left-52 w-[650px] ">
+            <div class="">
+              <button onclick="resetSelected() " class=" bg-red-500/70 maybe whitespace-nowrap p-2 rounded-md poppins-regular">
+                <div class="flex gap-1">
+                  <div>
+                    Reset selected
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                  </svg>
+
+                </div>
+         
+              </button>
             </div>
 
-            <div class="p-2 border-b-2 border-slate-700 text-white/60">
-              Water
-            </div>
+            <div class="grid grid-cols-6 gap-y-5 gap-x-3">
 
-            <div class="p-2 border-b-2 border-slate-700 text-white/60">
-              Grass
+
+              <div onclick="selectedType('fire')" id="fire"
+                class="p-2  font-semibold rounded-md  text-white/75 text-center cursor-pointer">
+                Fire
+              </div>
+
+              <div onclick="selectedType('water')" id="water"
+                class="p-2  font-semibold rounded-md  text-white/75 text-center cursor-pointer">
+                Water
+              </div>
+
+              <div onclick="selectedType('electric')" id="electric"
+                class="p-2  font-semibold rounded-md text-white/75 text-center cursor-pointer">
+                Electric
+              </div>
+
+              <div onclick="selectedType('grass')" id="grass"
+                class="p-2   font-semibold rounded-md  text-white/75 text-center cursor-pointer">
+                Grass
+              </div>
+
+              <div onclick="selectedType('bug')" id="bug"
+                class="p-2   font-semibold rounded-md  text-white/75 text-center cursor-pointer">
+                Bug
+              </div>
+
+              <div onclick="selectedType('poison')" id="poison"
+                class="p-2   font-semibold rounded-md  text-white/75 text-center cursor-pointer">
+                Poison
+              </div>
+
+              <div onclick="selectedType('dark')" id="dark"
+                class="p-2   font-semibold rounded-md  text-white/75 text-center cursor-pointer">
+                Dark
+              </div>
+
+              <div onclick="selectedType('rock')" id="rock"
+                class="p-2   font-semibold rounded-md  text-white/75 text-center cursor-pointer">
+                Rock
+              </div>
+
+              <div onclick="selectedType('ground')" id="ground"
+                class="p-2   font-semibold rounded-md  text-white/75 text-center cursor-pointer">
+                Ground
+              </div>
+              <div onclick="selectedType('steel')" id="steel"
+                class="p-2   font-semibold rounded-md  text-white/75 text-center cursor-pointer">
+                Steel
+              </div>
+              <div onclick="selectedType('flying')" id="flying"
+                class="p-2   font-semibold rounded-md  text-white/75 text-center cursor-pointer">
+                Flying
+              </div>
+              <div onclick="selectedType('normal')" id="normal"
+                class="p-2   font-semibold rounded-md   text-white/75 text-center cursor-pointer">
+                Normal
+              </div>
+
+              <div onclick="selectedType('ghost')" id="ghost"
+                class="p-2   font-semibold rounded-md  text-white/75 text-center cursor-pointer">
+                Ghost
+              </div>
+
+              <div onclick="selectedType('ice')" id="ice"
+                class="p-2   font-semibold rounded-md  text-white/75 text-center cursor-pointer">
+                Ice
+              </div>
+
+              <div onclick="selectedType('dragon')" id="dragon"
+                class="p-2   font-semibold rounded-md  text-white/75 text-center cursor-pointer">
+                Dragon
+              </div>
+
+              <div onclick="selectedType('psychic')" id="psychic"
+                class="p-2   font-semibold rounded-md  text-white/75 text-center cursor-pointer">
+                Psychic
+              </div>
+
+              <div onclick="selectedType('fairy')" id="fairy"
+                class="p-2   font-semibold rounded-md  text-white/75 text-center cursor-pointer">
+                Fairy
+              </div>
+              <div onclick="selectedType('fighting')" id="fighting"
+                class="p-2   font-semibold rounded-md  text-white/75 text-center cursor-pointer">
+                Fighting
+              </div>
             </div>
 
           </div>
@@ -93,11 +191,11 @@
     </div>
 
   </div>
- 
 
 
 
-  
+
+
 
   <script src="/main.js"></script>
 </body>
